@@ -1,75 +1,51 @@
-const Person = require("../person/Person");
-const JobVacancy = require("../job-vacancy/JobVacancy");
+const Person = require('../person/Person');
 
 class Candidate extends Person {
-  hardSkills;
-  softSkills;
-  level;
   id;
   jobsApplied = [];
   jobsSaved = [];
-  jobVacancy;
+  job;
 
-  constructor(name, cpfOrCnpj, contact, hardSkills, softSkills, level, id) {
+  constructor(name, cpfOrCnpj, contact, id) {
     super(name, cpfOrCnpj, contact);
-    this.candidateName = name;
-    this.hardSkills = hardSkills;
-    this.softSkills = softSkills;
-    this.level = level;
-    this.id = Math.floor(Math.random() * 50 + 1);
+    this.id = this.id;
+    console.log('Candidate created successfully!');
   }
 
-  applicationJob(jobVacancy, hardSkills, softSkills, level) {
-    if (jobVacancy instanceof JobVacancy) {
-      if (this.jobsApplied.indexOf(jobVacancy.JobVacancyId) === -1) {
-        jobVacancy.candidates.push(this.name);
-        this.jobsApplied.push(jobVacancy.JobVacancyId);
-        this.hardSkills = hardSkills;
-        this.softSkills = softSkills;
-        this.level = level;
+  applicationJob(jobId, hardSkills, softSkills, level) {
+    if (this.jobsApplied.indexOf(jobId) === -1) {
+      this.jobsApplied.push(jobId);
+      this.hardSkills = hardSkills;
+      this.softSkills = softSkills;
+      this.level = level;
 
-        return "Successfully Registered Candidate!";
-      } else {
-        return "You are already registered for this vacancy!";
-      }
+      return 'Successfully Registered Candidate!';
     } else {
-      return "Job not found!";
+      return 'You are already registered for this vacancy!';
     }
   }
 
-  removeApplicationJob(jobVacancy) {
-    if (jobVacancy instanceof JobVacancy) {
-      if (this.jobsApplied.indexOf(jobVacancy.JobVacancyId) > -1) {
-        this.jobsApplied = this.jobsApplied.filter(
-          (e) => e != jobVacancy.JobVacancyId
-        );
-        jobVacancy.candidates = jobVacancy.candidates.filter(
-          (e) => e != this.name
-        );
-        return `Application with code ${jobVacancy.JobVacancyId} deleted successfully!`;
-      } else {
-        console.log("You are not registered for this vacancy!");
-      }
+  removeApplicationJob(jobId) {
+    if (this.jobsApplied.indexOf(jobId) > -1) {
+      this.jobsApplied = this.jobsApplied.filter((e) => e != jobId);
+      return `Application with code ${jobId} deleted successfully!`;
     } else {
-      console.log("Job not found!");
+      return 'You are not registered for this Job vacancy!';
     }
   }
   getApplications() {
     return `You applied for jobs with code: ${this.jobsApplied}`;
   }
-  saveJob(jobVacancy) {
-    if (jobVacancy instanceof JobVacancy) {
-      if (this.jobsSaved.indexOf(jobVacancy.JobVacancyId) === -1) {
-        this.jobsSaved.push(jobVacancy.JobVacancyId);
-        console.log(
-          `Vacancy with code ${jobVacancy.JobVacancyId} successfully saved!`
-        );
-      } else {
-        console.log("You have saved this vacancy before.");
-      }
+  saveJob(jobId) {
+    if (this.jobsSaved.indexOf(jobId) === -1) {
+      this.jobsSaved.push(jobId);
+      return `Vacancy with code ${jobId} successfully saved!`;
     } else {
-      console.log("Job not found!");
+      return 'You have saved this vacancy before.';
     }
+  }
+  getJobsSaved() {
+    return `You have jobs saved:${this.jobsSaved}`;
   }
 }
 module.exports = Candidate;
