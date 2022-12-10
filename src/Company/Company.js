@@ -1,4 +1,4 @@
-const Person = require('../person/Person');
+const Person = require('../Person/Person');
 
 class Company extends Person {
   amount = 0;

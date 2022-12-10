@@ -1,5 +1,5 @@
-const Company = require('../company/Company');
-const Candidate = require('../candidate/Candidate');
+const Company = require('../Company/Company');
+const Candidate = require('../Candidate/Candidate');
 const Job = require('./Job');
 
 const company1 = new Company('Lojas Poney', 80327841000147, 21989898989, 1);

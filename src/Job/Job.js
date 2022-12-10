@@ -1,5 +1,5 @@
-const Company = require('../company/Company');
-const Candidate = require('../candidate/Candidate');
+const Company = require('../Company/Company');
+const Candidate = require('../Candidate/Candidate');
 
 class Job {
   company;
