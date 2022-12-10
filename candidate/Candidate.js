@@ -1,14 +1,13 @@
 const Person = require("../person/Person");
 
 class Candidate extends Person {
-  id;
   jobsApplied = [];
   jobsSaved = [];
   job;
 
   constructor(name, cpfOrCnpj, contact, id) {
     super(name, cpfOrCnpj, contact);
-    this.id = this.id;
+    this.id = id;
     Person.list.candidate.push(this);
     console.log("Candidate created successfully!");
   }

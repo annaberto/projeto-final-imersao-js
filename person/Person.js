@@ -1,5 +1,4 @@
 const { validateCpfOrCnpj, validateContact } = require("../utils");
-const candidate = require("../candidate/Candidate");
 
 class Person {
   static list = {
