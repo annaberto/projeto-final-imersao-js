@@ -1,9 +1,9 @@
-const Job = require('./Job');
 const Company = require('../company/Company');
 const Candidate = require('../candidate/Candidate');
+const Job = require('./Job');
 
-const company1 = new Company('Lojas Poney', '7373838', '838383', 1);
-let candidate1 = new Candidate('anna', '3737838', '84848', 1);
+const company1 = new Company('Lojas Poney', 80327841000147, 21989898989, 1);
+const candidate1 = new Candidate('Anna', 12889657282, 21989898989, 4);
 const job1 = new Job(
   company1,
   'open',
@@ -14,11 +14,11 @@ const job1 = new Job(
 );
 const job2 = new Job(
   company1,
-  'open',
+  'progress',
   'Falar da vaguinha aqui',
   'css',
   'resiliencia',
-  1
+  2
 );
 
 describe('Test Job class', () => {
@@ -34,13 +34,12 @@ describe('Test Job class', () => {
   });
 
   test('Check finalizeJob', () => {
-    const candidate1 = new Candidate('anna', '3737838', '84848', 1);
     expect(job1.finalizeJob(candidate1, company1)).toContain(
       'Vacancy closed successfully, the selected candidate was'
     );
   });
   test('Check updateStatus', () => {
-    expect(job1.updateStatus('Open')).toBe(
+    expect(job1.updateStatus('open')).toBe(
       'The vacancy status has been updated!'
     );
   });

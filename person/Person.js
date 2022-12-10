@@ -1,4 +1,4 @@
-const { validateCpfOrCnpj, validateContact } = require("../utils");
+const { validateCpfOrCnpj, validateContact } = require('../utils');
 
 class Person {
   static list = {
@@ -15,7 +15,7 @@ class Person {
       this.cpfOrCnpj = cpfOrCnpj;
       this.contact = contact;
     } else {
-      console.log("CPF or CNPJ no is validate");
+      console.log('CPF or CNPJ no is validate');
     }
   }
 }
