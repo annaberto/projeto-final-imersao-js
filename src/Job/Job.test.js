@@ -3,7 +3,7 @@ const Candidate = require('../Candidate/Candidate');
 const Job = require('./Job');
 
 const company1 = new Company('Lojas Poney', 80327841000147, 21989898989, 1);
-const candidate1 = new Candidate('Anna', 12889657282, 21989898989, 4);
+const candidate1 = new Candidate('Anna', 12889657282, 21989898989, 4, 'junior');
 const job1 = new Job(
   company1,
   'open',

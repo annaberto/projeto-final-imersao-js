@@ -1,5 +1,5 @@
 const Candidate = require('./Candidate.js');
-const candidate1 = new Candidate('Anna', 12889657282, 21989898989, 4);
+const candidate1 = new Candidate('Anna', 12889657282, 21989898989, 4, 'junior');
 
 describe('Test Candidate class', () => {
   test('Check that the instance of the Candidate class is being made correctly', () => {

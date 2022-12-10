@@ -31,6 +31,7 @@ class Job {
 
   deleteJob(jobId) {
     if (Job.jobCreated.indexOf(jobId) > -1) {
+      Job.jobCreated = Job.jobCreated.filter((e) => e != jobId);
       return `Job Vacancy with code ${jobId} deleted successfully!`;
     } else {
       return 'Job vacancy not found!';

@@ -5,9 +5,10 @@ class Candidate extends Person {
   jobsSaved = [];
   job;
 
-  constructor(name, cpfOrCnpj, contact, id) {
+  constructor(name, cpfOrCnpj, contact, id, level) {
     super(name, cpfOrCnpj, contact);
     this.id = id;
+    this.level = level;
     Person.list.candidate.push(this);
     console.log('Candidate created successfully!');
   }
@@ -17,8 +18,6 @@ class Candidate extends Person {
       this.jobsApplied.push(jobId);
       this.hardSkills = hardSkills;
       this.softSkills = softSkills;
-      this.level = level;
-
       return 'Successfully Registered Candidate!';
     } else {
       return 'You are already registered for this vacancy!';
