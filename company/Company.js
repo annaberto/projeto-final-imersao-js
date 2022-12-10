@@ -7,7 +7,7 @@ class Company extends Person {
 
   constructor(name, cpfOrCnpj, contact, companyId) {
     super(name, cpfOrCnpj, contact);
-    this.companyId = this.companyId;
+    this.companyId = companyId;
     Person.list.company.push(this);
     console.log('Company created successfully!');
   }

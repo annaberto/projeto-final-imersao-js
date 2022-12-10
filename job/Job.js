@@ -8,27 +8,18 @@ class Job {
   selectedCandidate = '';
   jobId;
   candidate;
-  jobCreated = [];
 
-  constructor(
-    company,
-    status,
-    description,
-    hardSkills,
-    softSkills,
-    jobId,
-    jobCreated
-  ) {
+  constructor(company, status, description, hardSkills, softSkills, jobId) {
     if (company instanceof Company) {
-      if (this.jobCreated.indexOf(jobId) === -1) {
+      if (Job.jobCreated.indexOf(jobId) === -1) {
         this.company = company;
         this.status = status;
         this.description = description;
         this.hardSkills = hardSkills;
         this.softSkills = softSkills;
         this.jobId = jobId;
-        this.jobCreated.push(jobId);
-        company.amount -= 150;
+        this.constructor.jobCreated.push(this.jobId);
+        company.amount -= 50;
         console.log('Job vacancy created successfully');
       } else {
         console.log('This Job vacancy already exists');
@@ -39,8 +30,7 @@ class Job {
   }
 
   deleteJob(jobId) {
-    if (this.jobCreated.indexOf(jobId) > -1) {
-      this.jobCreated = this.jobCreated.filter((e) => e != jobId);
+    if (Job.jobCreated.indexOf(jobId) > -1) {
       return `Job Vacancy with code ${jobId} deleted successfully!`;
     } else {
       return 'Job vacancy not found!';
@@ -52,7 +42,7 @@ class Job {
       if (company instanceof Company) {
         this.status = 'Finished';
         if (candidate.level == 'junior') {
-          company.receivedCashback = company.receivedCashback + 100;
+          company.receivedCashback += 30;
         }
         return `Vacancy closed successfully, the selected candidate was ${candidate.name}`;
       } else {
@@ -90,6 +80,7 @@ class Job {
       }
     }
   }
+  static jobCreated = [];
 }
 
 module.exports = Job;

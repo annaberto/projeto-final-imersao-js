@@ -1,4 +1,4 @@
-const Person = require('../person/Person');
+const Person = require("../person/Person");
 
 class Candidate extends Person {
   id;
@@ -9,7 +9,8 @@ class Candidate extends Person {
   constructor(name, cpfOrCnpj, contact, id) {
     super(name, cpfOrCnpj, contact);
     this.id = this.id;
-    console.log('Candidate created successfully!');
+    Person.list.candidate.push(this);
+    console.log("Candidate created successfully!");
   }
 
   applicationJob(jobId, hardSkills, softSkills, level) {
@@ -19,9 +20,9 @@ class Candidate extends Person {
       this.softSkills = softSkills;
       this.level = level;
 
-      return 'Successfully Registered Candidate!';
+      return "Successfully Registered Candidate!";
     } else {
-      return 'You are already registered for this vacancy!';
+      return "You are already registered for this vacancy!";
     }
   }
 
@@ -30,22 +31,26 @@ class Candidate extends Person {
       this.jobsApplied = this.jobsApplied.filter((e) => e != jobId);
       return `Application with code ${jobId} deleted successfully!`;
     } else {
-      return 'You are not registered for this Job vacancy!';
+      return "You are not registered for this Job vacancy!";
     }
   }
+
   getApplications() {
     return `You applied for jobs with code: ${this.jobsApplied}`;
   }
+
   saveJob(jobId) {
     if (this.jobsSaved.indexOf(jobId) === -1) {
       this.jobsSaved.push(jobId);
       return `Vacancy with code ${jobId} successfully saved!`;
     } else {
-      return 'You have saved this vacancy before.';
+      return "You have saved this vacancy before.";
     }
   }
+
   getJobsSaved() {
     return `You have jobs saved:${this.jobsSaved}`;
   }
 }
+
 module.exports = Candidate;
