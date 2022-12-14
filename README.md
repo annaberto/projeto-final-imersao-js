@@ -29,6 +29,7 @@ Nesta versão inicial do projeto é possivel:
 - Remover candidatura;
 - Salvar vagas de emprego;
 - Consultar vagas salvas;
+- Consultar de um candidato da match de acordo com as harsdskills ou softskills (em andamento)
 
 
 ## Iniciando o projeto
@@ -55,6 +56,10 @@ To run tests, run the following command
   npm run test
 ```
 
+## Pontos de melhoria
+Como pontos de melhoria para as próximas versões, podem ser melhoradas as funcionalidades de dar match em relação as softskills e hardskills, adicinar funcionalidades de promover a vaga de uma empresa para ter mais destaque, pode-se aplicar alguns testes como comportamental ou de lógica vinculado ao cadidato e que possa ser reutilizado, e também incluir o cadastro de um curriculo próprio do candidato.
+
+
 ## Lições aprendidas
 
 Esse projeto é um trabalho final de um curso de 12 semanas feito por e para mulheres que trouxeram tópicos importantes de conhecimentos técnicos e também aprendizado de habilidades comportamentais que são fundamentais para as atividades profissionais.
@@ -63,8 +68,6 @@ Assuntos técnicos abordados durante o curso: Programação orientada a objetos,
 
 Sou muito grata por ter partilhado meus dias e novos aprendizados ao lado de mulheres incríveis, que assim como eu tiveram que ter muita força e determinação para conclusão deste curso maravilhoso.
 Sou muito grata por ter partilhado meus dias e novos aprendizados ao lado de mulheres incríveis, que assim como eu tiveram que ter muita força e determinação para conclusão deste curso maravilhoso.
-
-
 
 ## Authors
 
